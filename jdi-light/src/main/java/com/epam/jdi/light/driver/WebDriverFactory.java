@@ -84,18 +84,25 @@ public class WebDriverFactory {
         }
     }
     private static WebDriver getValidDriver(String driverName) {
+        logger.error("getValidDriver: " + driverName);
+
         boolean goodDriver = false;
         WebDriver driver = null;
         Timer timer = new Timer(10);
         while (!goodDriver && !timer.timeoutPassed()) {
+            logger.error("while (!goodDriver && !timer.timeoutPassed()");
+
             try {
                 if (driver != null) {
                     driver.quit();
                 }
                 logger.trace("getValidDriver: Getting driver...");
+                logger.error("getValidDriver: DRIVERS.get(driverName): " + DRIVERS.get(driverName));
                 driver = DRIVERS.get(driverName).execute();
+                logger.error("getValidDriver: DRIVERS.get(driverName).execute(): " + driver);
                 goodDriver = isNotBlank(driver.getCurrentUrl());
                 logger.trace("getValidDriver: Get driver success");
+                logger.error("getValidDriver: Get driver success");
             } catch (Throwable ignore) {
                 logger.trace("getValidDriver: Get driver failed");
             }

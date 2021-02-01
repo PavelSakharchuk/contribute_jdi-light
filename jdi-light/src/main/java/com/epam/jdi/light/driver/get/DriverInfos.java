@@ -15,6 +15,7 @@ import org.openqa.selenium.safari.SafariOptions;
 
 import static com.epam.jdi.light.driver.get.DriverData.*;
 import static com.epam.jdi.light.driver.get.DriverTypes.*;
+import static com.epam.jdi.light.settings.WebSettings.logger;
 
 /**
  * Created by Roman Iovlev on 26.09.2019
@@ -26,9 +27,16 @@ public class DriverInfos {
             d.downloadType = CHROME;
             d.initCapabilities = new ChromeOptions();
             d.capabilities = c -> getCapabilities(c, cap -> CHROME_OPTIONS.execute((ChromeOptions) cap));
+            logger.error("DriverInfos: 30");
+
             d.properties = "webdriver.chrome.driver";
+            logger.error("DriverInfos: 33");
+
             d.path = DriverData::chromeDriverPath;
+            logger.error("DriverInfos: 36");
+
             d.getDriver = c -> new ChromeDriver((ChromeOptions) c);
+
         }
     );
     public static DriverInfo FIREFOX_INFO = new DriverInfo()
