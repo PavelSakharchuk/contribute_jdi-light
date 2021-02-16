@@ -346,6 +346,17 @@ public class UIElement extends JDIBase
             case JS:
                 jsExecute("click()");
                 break;
+            case HUMAN_CLICK:
+                show();
+                int elementWidth = getRect().getWidth();
+                int elementHeight = getRect().getHeight();
+
+                int widthPoint = 1 + (int) (Math.random() * elementWidth - 1);
+                int heightPoint = 1 + (int) (Math.random() * elementHeight - 1);
+
+                click(widthPoint,heightPoint);
+                logger.debug("Click Random Point");
+                break;
             case SMART_CLICK:
                 show();
                 ElementArea clArea = timer().getResultByCondition(

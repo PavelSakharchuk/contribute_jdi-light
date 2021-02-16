@@ -18,6 +18,17 @@ import static com.epam.jdi.light.settings.WebSettings.STRICT_SEARCH;
 import static com.epam.jdi.tools.LinqUtils.list;
 
 public enum Strategies {
+    JDI_HUMAN(() -> {
+        ELEMENT.getElementWithArgs = JdiSettings.GET_WITH_ARGS;
+        ELEMENT.getElementAndValidate = JdiSettings.GET_AND_VALIDATE;
+        ELEMENT.clickType = ElementArea.HUMAN_CLICK;
+        ELEMENT.getTextType = TextTypes.SMART_TEXT;
+        ELEMENT.setTextType = SetTextTypes.SET_TEXT;
+        ELEMENT.searchRule = Pair.$("Visible", VISIBLE_ELEMENT);
+        STRICT_SEARCH = true;
+        COMMON.killBrowser = "afterAndBefore";
+        ELEMENT.beforeSearch = UIElement::show;
+    }),
     JDI_SMART(() -> {
         ELEMENT.getElementWithArgs = JdiSettings.GET_WITH_ARGS;
         ELEMENT.getElementAndValidate = JdiSettings.GET_AND_VALIDATE;

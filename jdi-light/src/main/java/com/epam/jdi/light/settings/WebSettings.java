@@ -394,6 +394,7 @@ public class WebSettings {
         switch (strategy) {
             case "jdi": return JDI;
             case "jdismart": return JDI_SMART;
+            case "jdihuman": return JDI_HUMAN;
             case "selenium": return SELENIUM;
             default: return JDI;
         }

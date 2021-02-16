@@ -252,6 +252,10 @@
           "description": "Use Smart click that try to find area to click on the element; scroll browser window to element before search; Support Smart locators and elements cache; Smart Get text (try to get text from text, value and inner text of the element); Text Field input as set value in to the \"value\" attribute; Element considered as found if only one element found and it is visible"
         },
         {
+          "value": "jdi human",
+          "description": "Use Human Smart click that try to find random area to click on the element; scroll browser window to element before search; Support Smart locators and elements cache; Smart Get text (try to get text from text, value and inner text of the element); Text Field input as set value in to the \"value\" attribute; Element considered as found if only one element found and it is visible"
+        },
+        {
           "value": "selenium",
           "description": "Use Selenium like click in the Center of the element; Get element using simple findElement (no smart locators support); Get text using Selenium getText() method; Text Field input using Selenium sendKeys(...) method; Element considered as found if on the page no matter visible or not and if more then one element found than use first one"
         }
